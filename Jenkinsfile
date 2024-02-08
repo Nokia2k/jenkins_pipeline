@@ -6,7 +6,7 @@ pipeline {
         sh '''#!/bin/bash
         indice=/var/www/index.html
 	ws=/var/jenkins_home/workspace/Tarea3
-	if [ -e $indice ]; then rm -rf $indice fi'''
+	if [ -e $indice ]; then rm -rf $indice; fi'''
       }
     }
     stage('colocando en volumen el archivo') {
