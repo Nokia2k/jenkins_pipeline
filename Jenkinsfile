@@ -4,14 +4,14 @@ pipeline {
     stage('comprobando index.html') {
       steps {
         sh '''#!/bin/bash
-        indice=/var/www/index.html
+        index=/var/www/index.html
 	ws=/var/jenkins_home/workspace/Tarea3
-	if [ -e $indice ]; then rm -rf $indice; fi'''
+	if [ -e $index ]; then rm -rf $index; fi'''
       }
     }
     stage('colocando en volumen el archivo') {
       steps {
-        sh 'cp /var/jenkins_home/workspace/Tarea3/index.html /var/www/indice.html'
+        sh 'cp /var/jenkins_home/workspace/Tarea3/index.html /var/www/index.html'
       }
     }
 
