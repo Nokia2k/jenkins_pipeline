@@ -1,17 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('copiando carpeta de trabajo') {
+    stage('comprobando index.html') {
       steps {
-        sh '#!/bin/bash'
-        sh 'carpeta="/var/jenkins_home/workspace/Tarea3/pagina_web"'
-	sh 'if [ -d $carpeta ]; then rm -rfd $carpeta fi'
-	sh 'git clone https://github.com/Nokia2k/jenkins_pipeline.git'
+        sh '''#!/bin/bash
+        indice=/var/www/index.html
+	ws=/var/jenkins_home/workspace/Tarea3
+	if [ -e $indice ]; then rm -rf $indice fi'''
       }
     }
-    stage('colocando en volumen la carpeta') {
+    stage('colocando en volumen el archivo') {
       steps {
-        sh 'cp $carpeta/index.html /var/www/index.html'
+        sh 'cp $ws/index.html $indice'
       }
     }
 
